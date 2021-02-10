@@ -1,0 +1,35 @@
+body {
+    background-color: aqua;
+}
+
+.the_box {
+    vertical-align: top;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 5px solid;
+    background-color: cornsilk;
+    text-align: center;
+}
+
+#header_3, #header_2 {
+    color: blue;
+}
+
+#total_2, #total_3, #new_header {
+    color: red;
+}
+
+#header_1 {
+    color: darkgreen;
+}
+
+.the_box2 {
+    height: 200px;
+    width: 628px;
+    border: 5px solid;
+    margin-top: 5px;
+    background-color: cornsilk;
+}
+
+
