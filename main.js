@@ -161,3 +161,153 @@ const inventory = [
     sold: 8,
   },
 ];
+
+// Hoeveel televisies moeten we in totaal nog verkopen?
+
+// nog te verkopen: originalStock - sold
+
+// MAYBE filter?
+
+// NOPE find?
+
+// NOPE sort?
+
+
+
+// STRAT 1
+
+// map? -> voor de hele array
+
+// bereken per televisie type: hoevel nog te verkopen, met map
+
+// [{​​}​​, {​​}​​, {​​}​​] -> [21, 0, 7]
+
+// Alle getallen optellen in de array
+
+// for loop
+
+
+
+// STRAT 2
+
+// for loop?
+
+// loopen over alle televisies
+
+// tellen (variabele count aanmaken)
+
+// nog te verkopen: originalStock - sold
+
+// optellen bij het totaal
+
+
+
+// - [ ] functie maken
+
+// - [ ] aanroepen
+
+// - [ ] parameter toevoegen (inventory)
+
+// - [ ] inventory ingeven als argument
+
+// - [ ] count variabele (buiten de loop)
+
+// - [ ] loop maken (voor elke televisie)
+
+// - [ ] originalStock - sold optellen bij count
+
+// - [ ] Totaal return uit de functie
+
+//Opdracht 1a
+const toSellPerType = inventory.map((television) => {
+  const toSellOfThisType = television.originalStock - television.sold;
+  return toSellOfThisType;
+} );
+const totalTvs = toSellPerType.reduce(function( a,b) {
+  return a + b;
+}, 0);
+
+//Opdracht 1b
+const showNumberTele = document.getElementById("header_3")
+showNumberTele.textContent = totalTvs;
+
+showNumberTele.setAttribute("id", "new_header");
+
+//Opdracht 2a
+const teleType = inventory.map(product => product.name);
+
+//Opdracht 2b
+const soldOut = inventory.filter((inventory) => {
+  return(inventory.originalStock === inventory.sold)
+});
+
+//Opdracht 2c
+const doesItHave = inventory.filter((inventory) => {
+  return(inventory.options["ambiLight"] === true)
+});
+
+//Opdracht 2d
+const lowToHigh = inventory.sort((teleA, teleB) => {
+  return teleA.price - teleB.price;
+});
+
+//Opdracht 3a
+const makinMoney = inventory.map((television) => {
+  const toSellOfThisType = television.originalStock * television.price;
+  return toSellOfThisType;
+} );
+const totalProfit = makinMoney.reduce(function( a,b) {
+  return a + b;
+}, 0);
+
+const showValueOfStock = document.getElementById("total_2");
+showValueOfStock.textContent = "\u20AC" + totalProfit;
+
+showValueOfStock.setAttribute("id", "header_2");
+
+//Opdracht 3b
+const moreMoney = inventory.map((television) => {
+  const toSellOfThisType = television.price * television.sold;
+  return toSellOfThisType;
+} );
+const profitTillNow = moreMoney.reduce(function( a,b) {
+  return a + b;
+}, 0);
+
+const showProfit = document.getElementById("total_3");
+showProfit.textContent = "\u20AC" + profitTillNow;
+
+showProfit.setAttribute("id", "header_1");
+
+//Opdracht 4
+//const addedList = document.createElement("li");
+//addedList.setAttribute("class", "tv_list");
+//const typeTv = inventory[0].type;
+//addedList.textContent = typeTv;
+//const myList = document.getElementById("list_of_tvs");
+//myList.appendChild(addedList);
+
+//const newList = document.createElement("li");
+//newList.setAttribute("class", "tv_list");
+//const modelTv = inventory[1].type;
+//newList.textContent = modelTv;
+//const firstList = document.getElementById("list_of_tvs");
+//firstList.appendChild(newList);
+
+//Opdracht 5a en 5b
+function showAllTvs(television) {
+  const addedList = document.createElement("li");
+  addedList.setAttribute("class", "tv_list");
+  const typeTv = `${television.brand} ${television.type} - ${television.name} \u20AC${television.price}`;
+  addedList.textContent = typeTv;
+  const myList = document.getElementById("list_of_tvs");
+  myList.appendChild(addedList);
+}
+ for (let index=0; index<inventory.length; index++) {
+   const television = inventory[index];
+   showAllTvs(television);
+ }
+
+//Wegens gebrek aan tijd kwam ik niet verder.
+
+
